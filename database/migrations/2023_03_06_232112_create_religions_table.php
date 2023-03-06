@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('religions', function (Blueprint $table) {
             $table->id();
-            $table->name('name');
+            $table->string('name');
             $table->timestamps();
+        });
+
+        Schema::table('applications', function(Blueprint $table){
+            $table->foreignId('religion_id')->constrained('religions');
         });
     }
 

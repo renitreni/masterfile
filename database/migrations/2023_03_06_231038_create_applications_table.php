@@ -14,9 +14,6 @@ return new class extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('applicant_category_id');
-            $table->integer('applicant_type_id');
-            $table->integer('religion_id');
             $table->string('position')->nullable();
             $table->string('position_category')->nullable();
             $table->date('applicant_date')->nullable();

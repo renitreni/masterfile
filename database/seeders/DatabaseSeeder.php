@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\ApplicantCategory;
+use App\Models\ApplicantType;
+use App\Models\Religion;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +17,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        ApplicantType::factory(10)->create();
+        ApplicantCategory::factory(10)->create();
+        Religion::factory(10)->create();
 
         User::factory()->create([
             'name' => 'Admin',

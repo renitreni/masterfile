@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('applicant_categories', function (Blueprint $table) {
             $table->id();
-            $table->name('name');
+            $table->string('name');
             $table->timestamps();
+        });
+
+        Schema::table('applications', function(Blueprint $table){
+            $table->foreignId('applicant_category_id')->constrained('applicant_categories');
         });
     }
 
