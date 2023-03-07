@@ -45,7 +45,8 @@
                                         @csrf
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user" name="email"
-                                                aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                                aria-describedby="emailHelp" placeholder="Enter Email Address..."
+                                                value="admin@site.com">
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -54,7 +55,8 @@
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                name="password" placeholder="Password">
+                                                name="password" placeholder="Password"
+                                                value="password">
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
