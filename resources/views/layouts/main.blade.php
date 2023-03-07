@@ -13,7 +13,15 @@
     <link href="{{ asset('theme/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <!-- Custom styles for this template-->
     <link href="{{ asset('theme/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    
     @livewireStyles
+
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
 </head>
 <body id="page-top">
 

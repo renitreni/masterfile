@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('position')->nullable();
             $table->string('position_category')->nullable();
             $table->date('applicant_date')->nullable();
-            $table->enum('status', ['male', 'female']);
+            $table->enum('gender', ['male', 'female']);
             $table->enum('civil_status', ['married', 'divorced', 'separated', 'widowed']);
             $table->date('birthdate')->nullable();
             $table->text('short_address')->nullable();
