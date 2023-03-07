@@ -21,16 +21,21 @@ class ApplicationTable extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable(),
             Column::make("Name", "name")
+                ->searchable()
                 ->sortable(),
             Column::make("Position", "position")
+                ->searchable()
                 ->sortable(),
             Column::make("Position category", "position_category")
+                ->searchable()
                 ->sortable(),
             Column::make("Applicant date", "applicant_date")
                 ->sortable(),
             Column::make("Gender", "gender")
+                ->searchable()
                 ->sortable(),
             Column::make("Civil status", "civil_status")
+                ->searchable()
                 ->sortable(),
             Column::make("Birthdate", "birthdate")
                 ->sortable(),
