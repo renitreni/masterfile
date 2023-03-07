@@ -13,7 +13,13 @@ class ApplicationTable extends DataTableComponent
 
     public function configure(): void
     {
-        $this->setPrimaryKey('id');
+        $this->setPrimaryKey('id')
+            ->setTableRowUrl(function ($row) {
+                return route('application-form', ['appId' => encrypt($row['id'])]);
+            })
+            ->setTableRowUrlTarget(function ($row) {
+                return '_blank';
+            });
     }
 
     public function columns(): array
@@ -31,7 +37,7 @@ class ApplicationTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Applicant date", "applicant_date")
-                ->format(fn($value) => Carbon::parse($value)->format('F j, Y'))
+                ->format(fn ($value) => Carbon::parse($value)->format('F j, Y'))
                 ->sortable(),
             Column::make("Gender", "gender")
                 ->searchable()
@@ -40,7 +46,7 @@ class ApplicationTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Birthdate", "birthdate")
-                ->format(fn($value) => Carbon::parse($value)->format('F j, Y'))
+                ->format(fn ($value) => Carbon::parse($value)->format('F j, Y'))
                 ->sortable(),
         ];
     }
