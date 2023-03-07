@@ -2,9 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use Rappasoft\LaravelLivewireTables\DataTableComponent;
-use Rappasoft\LaravelLivewireTables\Views\Column;
+use Carbon\Carbon;
 use App\Models\Application;
+use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\DataTableComponent;
 
 class ApplicationTable extends DataTableComponent
 {
@@ -30,6 +31,7 @@ class ApplicationTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Applicant date", "applicant_date")
+                ->format(fn($value) => Carbon::parse($value)->format('F j, Y'))
                 ->sortable(),
             Column::make("Gender", "gender")
                 ->searchable()
@@ -38,6 +40,7 @@ class ApplicationTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Birthdate", "birthdate")
+                ->format(fn($value) => Carbon::parse($value)->format('F j, Y'))
                 ->sortable(),
         ];
     }
