@@ -21,6 +21,9 @@
 
     <style>
         [x-cloak] { display: none !important; }
+        th > div > span {
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body id="page-top">

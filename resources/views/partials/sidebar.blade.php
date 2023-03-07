@@ -11,8 +11,8 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item @if(request()->is('dashboard')) active @endif">
-        <a class="nav-link" href="{{ route('dashboard') }}">
+    <li class="nav-item @if(request()->is('dashboards')) active @endif">
+        <a class="nav-link" href="{{ route('dashboards') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -22,14 +22,14 @@
 
     <!-- Heading -->
     <div class="sidebar-heading">
-        Interface
+        OFW Section
     </div>
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+    <!-- Nav Item - Applications -->
+    <li class="nav-item @if(request()->is('applications')) active @endif">
+        <a class="nav-link" href="{{ route('applications') }}">
+            <i class="fas fa-thumbtack"></i>
+            <span>Applications</span></a>
     </li>
 
     <!-- Divider -->

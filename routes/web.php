@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Livewire\DashboardLivewire;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Livewire\DashboardLivewire;
+use App\Http\Livewire\ApplicationLivewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::group(['middleware' => 'auth'], function(){
-    Route::get('/dashboard', DashboardLivewire::class)->name('dashboard');
+    Route::get('/dashboards', DashboardLivewire::class)->name('dashboards');
+    Route::get('/applications', ApplicationLivewire::class)->name('applications');
 });

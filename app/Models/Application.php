@@ -14,7 +14,7 @@ class Application extends Model
         'position',
         'position_category',
         'applicant_date',
-        'status',
+        'gender',
         'civil_status',
         'birthdate',
         'short_address',
