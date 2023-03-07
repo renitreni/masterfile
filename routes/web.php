@@ -19,7 +19,7 @@ use App\Http\Livewire\ApplicationLivewire;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('dashboards');
 });
 
 Auth::routes();
