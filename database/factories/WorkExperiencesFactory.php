@@ -18,7 +18,7 @@ class WorkExperiencesFactory extends Factory
     public function definition(): array
     {
         return [
-            'applications_id' => Application::query()->inRandomOrder()->first()->id,
+            'application_id' => Application::query()->inRandomOrder()->first()->id,
             'company_name' => $this->faker->company(),
             'position' => $this->faker->jobTitle(),
             'address' => $this->faker->address(),

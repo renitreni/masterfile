@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('work_experiences', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('applications_id')->constrained('applications');
+            $table->foreignId('application_id')->constrained('applications');
             $table->string('company_name');
             $table->string('position')->nullable();
             $table->text('address')->nullable();

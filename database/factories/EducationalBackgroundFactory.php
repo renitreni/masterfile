@@ -18,7 +18,7 @@ class EducationalBackgroundFactory extends Factory
     public function definition(): array
     {
         return [
-            'applications_id' => Application::query()->inRandomOrder()->first()->id,
+            'application_id' => Application::query()->inRandomOrder()->first()->id,
             'level' => $this->faker->randomElement(['elementary', 'highschool', 'college', 'university', 'post graduate']),
             'course' => $this->faker->word(),
             'address' => $this->faker->address(),

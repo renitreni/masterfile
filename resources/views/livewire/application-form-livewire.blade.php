@@ -3,7 +3,7 @@
     <h1 class="h3 mb-4 text-gray-800">Application Form</h1>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mb-4">
             <div class="card">
                 <div class="card-header">
                     General Information
@@ -102,6 +102,94 @@
                             <label>Complete Address</label>
                             <textarea class="form-control" wire:model='generalInfo.complete_address'></textarea>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card mb-3">
+                <div class="card-header">
+                    Educational Background
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach ($educational as $idx => $item)
+                            <div class="col-12">
+                                <div class="card shadow">
+                                    <div class="card-body">
+                                        <div class="row mb-3">
+                                            <div class="col-4">
+                                                <label>Level</label>
+                                                <select class="form-control" wire:model='educational.{{ $idx }}.level'>
+                                                    <option value="">unspecified</option>
+                                                    @foreach ($levels as $item)
+                                                        <option value="{{ $item->value }}">{{ $item->value }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col-4">
+                                                <label>Course</label>
+                                                <input type="text" class="form-control" wire:model='educational.{{ $idx }}.course'>
+                                            </div>
+                                            <div class="col-4">
+                                                <label>Year Graduated</label>
+                                                <input type="text" class="form-control"  wire:model='educational.{{ $idx }}.year_graduate'>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label>Address</label>
+                                            <input type="text" class="form-control" wire:model='educational.{{ $idx }}.address'>
+                                        </div>
+                                        <div>
+                                            <label>Awards</label>
+                                            <input type="text" class="form-control"  wire:model='educational.{{ $idx }}.awards'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    Work History
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach ($workHistory as $idx => $item)
+                            <div class="col-12">
+                                <div class="card shadow mb-3">
+                                    <div class="card-body">
+                                        <div>
+                                            <label>Company Name</label>
+                                            <input type="text" class="form-control" wire:model='workHistory.{{ $idx }}.company_name'>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-6">
+                                                <label>Years Of Experience</label>
+                                                <input type="text" class="form-control"  wire:model='workHistory.{{ $idx }}.years_experience'>
+                                            </div>
+                                            <div class="col-6">
+                                                <label>Position</label>
+                                                <input type="text" class="form-control"  wire:model='workHistory.{{ $idx }}.position'>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label>Address</label>
+                                            <input type="text" class="form-control" wire:model='workHistory.{{ $idx }}.address'>
+                                        </div>
+                                        <div>
+                                            <label>Contact Number</label>
+                                            <input type="text" class="form-control"  wire:model='workHistory.{{ $idx }}.contact_no'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

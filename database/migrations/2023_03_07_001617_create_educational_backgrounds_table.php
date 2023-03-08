@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('educational_backgrounds', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('applications_id')->constrained('applications');
+            $table->foreignId('application_id')->constrained('applications');
             $table->enum('level', ['elementary', 'highschool', 'college', 'university', 'post graduate']);
             $table->string('course')->nullable();
             $table->text('address')->nullable();
