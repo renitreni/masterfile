@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Livewire\ApplicationFormLivewire;
 use App\Http\Livewire\DashboardLivewire;
 use App\Http\Livewire\ApplicationLivewire;
+use App\Http\Livewire\OptionsLivewire;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/dashboards', DashboardLivewire::class)->name('dashboards');
     Route::get('/applications', ApplicationLivewire::class)->name('applications');
     Route::get('/application-form', ApplicationFormLivewire::class)->name('application-form');
+
+    Route::get('/options', OptionsLivewire::class)->name('options');
 });

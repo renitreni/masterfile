@@ -12,7 +12,7 @@
     <hr class="sidebar-divider my-0">
     <!-- Nav Item - Dashboard -->
     <li class="nav-item @if(request()->is('dashboards')) active @endif">
-        <a class="nav-link" href="{{ route('dashboards') }}">
+        <a class="nav-link py-2" href="{{ route('dashboards') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -27,9 +27,16 @@
 
     <!-- Nav Item - Applications -->
     <li class="nav-item @if(request()->is('applications')) active @endif">
-        <a class="nav-link" href="{{ route('applications') }}">
+        <a class="nav-link py-2" href="{{ route('applications') }}">
             <i class="fas fa-thumbtack"></i>
             <span>Applications</span></a>
+    </li>
+
+    <!-- Nav Item - Options -->
+    <li class="nav-item @if(request()->is('options')) active @endif">
+        <a class="nav-link py-2" href="{{ route('options') }}">
+            <i class="fas fa-thumbtack"></i>
+            <span>Options</span></a>
     </li>
 
     <!-- Divider -->

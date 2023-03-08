@@ -25,6 +25,7 @@
             white-space: nowrap;
         }
     </style>
+      
 </head>
 <body id="page-top">
 
@@ -88,6 +89,9 @@
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('theme/js/sb-admin-2.min.js') }}"></script>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <x-livewire-alert::scripts />
+    
 </body>
 
 </html>
