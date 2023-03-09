@@ -23,9 +23,11 @@ class DatabaseSeeder extends Seeder
         ApplicantType::factory(10)->create();
         ApplicantCategory::factory(10)->create();
         Religion::factory(10)->create();
-        Application::factory(100)->create();
-        EducationalBackground::factory(200)->create();
-        WorkExperiences::factory(200)->create();
+
+        Application::factory(100)
+            ->has(EducationalBackground::factory(3))
+            ->has(WorkExperiences::factory(3))
+            ->create();
 
         User::factory()->create([
             'name' => 'Admin',

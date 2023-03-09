@@ -27,4 +27,14 @@ class Application extends Model
         'applicant_type_id',
         'religion_id',
     ];
+
+    public function educationalBackground()
+    {
+        return $this->hasMany(EducationalBackground::class);
+    }
+
+    public function workExperiences()
+    {
+        return $this->hasMany(WorkExperiences::class);
+    }
 }
