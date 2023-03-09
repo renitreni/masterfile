@@ -53,13 +53,57 @@ class ApplicationFormLivewire extends Component
 
     public function addEntry($entry)
     {
-        if($entry == 'education')
-        {
+        if ($entry == 'education') {
             $this->educational[] = [];
         }
-        if($entry == 'work')
-        {
+        if ($entry == 'work') {
             $this->workHistory[] = [];
+        }
+    }
+
+    public function removeEntry($entry, $idx)
+    {
+        if ($entry == 'education') {
+            array_splice($this->educational, $idx, 1);
+        }
+        if ($entry == 'work') {
+            array_splice($this->workHistory, $idx, 1);
+        }
+    }
+
+    public function save()
+    {
+        dump($this->educational);
+        dump($this->workHistory);
+
+        $applicationId = decrypt($this->appId);
+
+        foreach ($this->educational as $item) {
+            EducationalBackground::query()->updateOrCreate(
+                ['id' => $item['id'] ?? null],
+                [
+                    'application_id' => $applicationId,
+                    'level' => $item['level'] ?? null,
+                    'course' => $item['course'] ?? null,
+                    'address' => $item['address'] ?? null,
+                    'year_graduate' => $item['year_graduate'] ?? null,
+                    'awards' => $item['awards'] ?? null,
+                ]
+            );
+        }
+
+        foreach ($this->workHistory as $item) {
+            WorkExperiences::query()->updateOrCreate(
+                ['id' => $item['id'] ?? null],
+                [
+                    'application_id' => $applicationId,
+                    'company_name' => $item['company_name'] ?? null,
+                    'position' => $item['position'] ?? null,
+                    'address' => $item['address'] ?? null,
+                    'contact_no' => $item['contact_no'] ?? null,
+                    'years_experience' => $item['years_experience'] ?? null,
+                ]
+            );
         }
     }
 }

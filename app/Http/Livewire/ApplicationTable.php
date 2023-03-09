@@ -16,9 +16,6 @@ class ApplicationTable extends DataTableComponent
         $this->setPrimaryKey('id')
             ->setTableRowUrl(function ($row) {
                 return route('application-form', ['appId' => encrypt($row['id'])]);
-            })
-            ->setTableRowUrlTarget(function ($row) {
-                return '_blank';
             });
     }
 

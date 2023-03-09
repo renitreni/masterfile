@@ -3,10 +3,10 @@
     <h1 class="h3 mb-4 text-gray-800">Application Form</h1>
     <div class="row mb-4 px-0">
         <div class="col-auto">
-            <button type="button" class="btn btn-secondary w-100">Cancel</button>
+            <a href="{{ route('applications') }}" class="btn btn-secondary w-100">Cancel</a>
         </div>
         <div class="col-auto px-0">
-            <button type="button" class="btn btn-info w-100">Save Changes</button>
+            <button wire:click='save' type="button" class="btn btn-info w-100">Save Changes</button>
         </div>
     </div>
     <div class="row">
@@ -128,6 +128,11 @@
                                 <div class="card mb-3">
                                     <div class="card-body">
                                         <div class="row mb-3">
+                                            <div class="col-12 mb-3 d-flex justify-content-end">
+                                                <button wire:click='removeEntry("education", {{ $idx }})' class="btn btn-sm btn-outline-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
                                             <div class="col-4">
                                                 <label>Level</label>
                                                 <select class="form-control" wire:model='educational.{{ $idx }}.level'>
@@ -176,6 +181,11 @@
                             <div class="col-12">
                                 <div class="card mb-3">
                                     <div class="card-body">
+                                        <div class="col-12 mb-3 d-flex justify-content-end">
+                                            <button wire:click='removeEntry("work", {{ $idx }})' class="btn btn-sm btn-outline-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
                                         <div class="mb-3">
                                             <label>Company Name</label>
                                             <input type="text" class="form-control" wire:model='workHistory.{{ $idx }}.company_name'>
