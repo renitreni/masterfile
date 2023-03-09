@@ -33,10 +33,6 @@ class ApplicationFormLivewire extends Component
 
     public function mount()
     {
-        $this->genders = GenderEnum::cases();
-        $this->civilStatus = CivilStatusEnum::cases();
-        $this->levels = EducationalLevelEnum::cases();
-
         $this->applicantCategory = ApplicantCategory::all();
         $this->applicantType = ApplicantType::all();
         $this->religion = Religion::all();
@@ -48,6 +44,10 @@ class ApplicationFormLivewire extends Component
 
     public function render()
     {
+        $this->genders = GenderEnum::cases();
+        $this->civilStatus = CivilStatusEnum::cases();
+        $this->levels = EducationalLevelEnum::cases();
+
         return view('livewire.application-form-livewire');
     }
 }

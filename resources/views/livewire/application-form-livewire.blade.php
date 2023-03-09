@@ -124,7 +124,7 @@
                                                 <select class="form-control" wire:model='educational.{{ $idx }}.level'>
                                                     <option value="">unspecified</option>
                                                     @foreach ($levels as $item)
-                                                        <option value="{{ $item->value }}">{{ $item->value }}</option>
+                                                        <option value="{{ $item }}">{{ $item }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
