@@ -50,4 +50,16 @@ class ApplicationFormLivewire extends Component
 
         return view('livewire.application-form-livewire');
     }
+
+    public function addEntry($entry)
+    {
+        if($entry == 'education')
+        {
+            $this->educational[] = [];
+        }
+        if($entry == 'work')
+        {
+            $this->workHistory[] = [];
+        }
+    }
 }

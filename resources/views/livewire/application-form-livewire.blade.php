@@ -1,10 +1,17 @@
 <div>
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">Application Form</h1>
-    @dump($genders)
+    <div class="row mb-4 px-0">
+        <div class="col-auto">
+            <button type="button" class="btn btn-secondary w-100">Cancel</button>
+        </div>
+        <div class="col-auto px-0">
+            <button type="button" class="btn btn-info w-100">Save Changes</button>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12 mb-4">
-            <div class="card">
+            <div class="card shadow-sm">
                 <div class="card-header">
                     General Information
                 </div>
@@ -59,7 +66,6 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label>Gender</label>
-                            {{  $generalInfo['gender'] }}
                             <select class="form-control" wire:model='generalInfo.gender'>
                                 <option value="">unspecified</option>
                                 @foreach ($genders as $item)
@@ -108,15 +114,18 @@
             </div>
         </div>
         <div class="col-md-6 mb-4">
-            <div class="card mb-3">
+            <div class="card shadow-sm mb-3">
                 <div class="card-header">
                     Educational Background
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        @foreach ($educational as $idx => $item)
+                        <div class="col-12 mb-3">
+                            <button type="button" class="btn btn-primary w-100" wire:click='addEntry("education")'>Add Entry</button>
+                        </div>
+                        @foreach (array_reverse($educational, true) as $idx => $item)
                             <div class="col-12">
-                                <div class="card shadow mb-3">
+                                <div class="card mb-3">
                                     <div class="card-body">
                                         <div class="row mb-3">
                                             <div class="col-4">
@@ -154,15 +163,18 @@
             </div>
         </div>
         <div class="col-md-6 mb-4">
-            <div class="card">
+            <div class="card shadow mb-3">
                 <div class="card-header">
                     Work History
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        @foreach ($workHistory as $idx => $item)
+                        <div class="col-12 mb-3">
+                            <button type="button" class="btn btn-primary w-100" wire:click='addEntry("work")'>Add Entry</button>
+                        </div>
+                        @foreach (array_reverse($workHistory, true) as $idx => $item)
                             <div class="col-12">
-                                <div class="card shadow mb-3">
+                                <div class="card mb-3">
                                     <div class="card-body">
                                         <div class="mb-3">
                                             <label>Company Name</label>
