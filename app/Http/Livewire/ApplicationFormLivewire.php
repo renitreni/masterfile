@@ -11,10 +11,13 @@ use App\Models\Application;
 use App\Models\EducationalBackground;
 use App\Models\Religion;
 use App\Models\WorkExperiences;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
 class ApplicationFormLivewire extends Component
 {
+    use LivewireAlert;
+    
     public $genders;
     public $civilStatus;
     public $levels;
@@ -73,37 +76,33 @@ class ApplicationFormLivewire extends Component
 
     public function save()
     {
-        dump($this->educational);
-        dump($this->workHistory);
-
         $applicationId = decrypt($this->appId);
 
+        EducationalBackground::where('application_id', $applicationId)->delete();
+        WorkExperiences::where('application_id', $applicationId)->delete();
+
         foreach ($this->educational as $item) {
-            EducationalBackground::query()->updateOrCreate(
-                ['id' => $item['id'] ?? null],
-                [
-                    'application_id' => $applicationId,
-                    'level' => $item['level'] ?? null,
-                    'course' => $item['course'] ?? null,
-                    'address' => $item['address'] ?? null,
-                    'year_graduate' => $item['year_graduate'] ?? null,
-                    'awards' => $item['awards'] ?? null,
-                ]
-            );
+            EducationalBackground::query()->insert([
+                'application_id' => $applicationId,
+                'level' => $item['level'] ?? null,
+                'course' => $item['course'] ?? null,
+                'address' => $item['address'] ?? null,
+                'year_graduate' => $item['year_graduate'] ?? null,
+                'awards' => $item['awards'] ?? null,
+            ]);
         }
 
         foreach ($this->workHistory as $item) {
-            WorkExperiences::query()->updateOrCreate(
-                ['id' => $item['id'] ?? null],
-                [
-                    'application_id' => $applicationId,
-                    'company_name' => $item['company_name'] ?? null,
-                    'position' => $item['position'] ?? null,
-                    'address' => $item['address'] ?? null,
-                    'contact_no' => $item['contact_no'] ?? null,
-                    'years_experience' => $item['years_experience'] ?? null,
-                ]
-            );
+            WorkExperiences::query()->insert([
+                'application_id' => $applicationId,
+                'company_name' => $item['company_name'] ?? null,
+                'position' => $item['position'] ?? null,
+                'address' => $item['address'] ?? null,
+                'contact_no' => $item['contact_no'] ?? null,
+                'years_experience' => $item['years_experience'] ?? null,
+            ]);
         }
+
+        $this->alert('success', 'Save Succesfully!');
     }
 }
