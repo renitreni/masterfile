@@ -40,6 +40,22 @@
     </li>
 
     <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Companies
+    </div>
+
+    <!-- Nav Item - Applications -->
+    <li class="nav-item @if(request()->is('agencies')) active @endif">
+        <a class="nav-link py-2" href="{{ route('agencies') }}">
+            <i class="fas fa-thumbtack"></i>
+            <span>Agencies</span></a>
+    </li>
+
+
+    <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
     <!-- Sidebar Toggler (Sidebar) -->
