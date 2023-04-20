@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
-                            <livewire:application-table />
+                            <livewire:agency-table />
                         </div>
                     </div>
                 </div>
