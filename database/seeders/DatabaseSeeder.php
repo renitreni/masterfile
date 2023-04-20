@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Agency;
+use App\Models\AgencyRepresentative;
 use App\Models\User;
 use App\Models\Religion;
 use App\Models\Application;
@@ -27,6 +29,10 @@ class DatabaseSeeder extends Seeder
         Application::factory(100)
             ->has(EducationalBackground::factory(3))
             ->has(WorkExperiences::factory(3))
+            ->create();
+
+        Agency::factory(10)
+            ->has(AgencyRepresentative::factory(3))
             ->create();
 
         User::factory()->create([
