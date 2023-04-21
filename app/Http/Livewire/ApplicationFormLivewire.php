@@ -17,7 +17,7 @@ use Livewire\Component;
 class ApplicationFormLivewire extends Component
 {
     use LivewireAlert;
-    
+
     public $genders;
     public $civilStatus;
     public $levels;
@@ -76,7 +76,11 @@ class ApplicationFormLivewire extends Component
 
     public function save()
     {
-        $applicationId = decrypt($this->appId);
+        $application = Application::query()->updateOrCreate([
+            'id' => $this->appId ? decrypt($this->appId) : null,
+        ], $this->generalInfo);
+
+        $applicationId = $application->id;
 
         EducationalBackground::where('application_id', $applicationId)->delete();
         WorkExperiences::where('application_id', $applicationId)->delete();
@@ -111,7 +115,7 @@ class ApplicationFormLivewire extends Component
         EducationalBackground::where('application_id', decrypt($this->appId))->delete();
         WorkExperiences::where('application_id', decrypt($this->appId))->delete();
         Application::destroy(decrypt($this->appId));
-        
+
         return redirect()->route('applications');
     }
 }
