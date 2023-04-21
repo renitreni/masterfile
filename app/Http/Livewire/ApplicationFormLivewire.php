@@ -105,4 +105,13 @@ class ApplicationFormLivewire extends Component
 
         $this->alert('success', 'Save Succesfully!');
     }
+
+    public function delete()
+    {
+        EducationalBackground::where('application_id', decrypt($this->appId))->delete();
+        WorkExperiences::where('application_id', decrypt($this->appId))->delete();
+        Application::destroy(decrypt($this->appId));
+        
+        return redirect()->route('applications');
+    }
 }
